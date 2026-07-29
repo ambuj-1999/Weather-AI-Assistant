@@ -1,0 +1,268 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #06242d;
+  color: #ffffff;
+}
+
+.weather-app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.weather-card {
+  flex: 1;
+  background-color: #06242d;
+  display: flex;
+  flex-direction: column;
+  padding: 3rem 10%;
+}
+
+.app-title {
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  color: #a8c5cc;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
+
+.weather {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.temperature {
+  display: flex;
+  align-items: flex-start;
+}
+
+.temp {
+  font-size: 5rem;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.degree {
+  margin-top: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.city {
+  margin-bottom: 0.4rem;
+  font-size: 2.25rem;
+  font-weight: 500;
+}
+
+.localtime,.localdate {
+  font-size: 0.9rem;
+  color: #b7ccd1;
+}
+
+.weather-condition {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.weather-icon {
+  width: 3rem;
+  height: 3rem;
+  object-fit: contain;
+}
+
+.condition {
+  font-size: 1rem;
+}
+
+.search-section {
+  background-color: #ffffff;
+  padding: 2rem 10%;
+  box-shadow: 0 -4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.search-form {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.search-form label {
+  display: block;
+  margin-bottom: 0.75rem;
+  color: #24434b;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.search-controls {
+  display: flex;
+  gap: 1rem;
+}
+
+.search-field {
+  flex: 1;
+  padding: 0.9rem 0.25rem;
+  border: none;
+  border-bottom: 2px solid #9eb2b7;
+  background-color: transparent;
+  color: #17343c;
+  font-size: 1rem;
+  outline: none;
+}
+
+.search-field:focus {
+  border-bottom-color: #158f88;
+}
+
+.search-field::placeholder {
+  color: #819398;
+}
+
+.search-form button {
+  padding: 0.9rem 2rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #158f88;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.search-form button:hover {
+  background-color: #10736e;
+}
+
+@media (max-width: 650px) {
+  .weather-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .weather {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  .temp {
+    font-size: 4rem;
+  }
+
+  .city {
+    font-size: 1.75rem;
+  }
+
+  .search-section {
+    padding: 1.5rem;
+  }
+
+  .search-controls {
+    flex-direction: column;
+  }
+
+  .search-form button {
+    width: 100%;
+  }
+}
+
+/* AI Weather Assistant */
+
+/* AI Weather Assistant */
+
+.ai-section {
+  margin-top: auto;
+  padding: 2.5rem 10% 3rem;
+  text-align: center;
+  color:#06242d;
+  background: transparent;
+}
+
+.ai-card {
+  display: flex;
+  justify-content: center;
+  padding: 0.6rem 0 0.2rem;
+}
+
+.assistant-shell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  width: min(100%, 720px);
+  padding: 1.25rem 1.25rem 1.5rem;
+  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(6,36,45,0.96) 0%, rgba(21,143,136,0.90) 50%, rgba(42,166,217,0.85) 100%);
+  box-shadow: 0 22px 50px rgba(6,36,45,0.45);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.assistant-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 0.95rem 1.7rem;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #4ecdc4, #2aa6d9);
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.18);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  z-index: 2;
+}
+
+.assistant-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.24);
+  filter: brightness(1.03);
+}
+
+.assistant-button:active {
+  transform: translateY(0);
+}
+
+.assistant-icon {
+  font-size: 1.05rem;
+}
+
+.assistant-hint {
+  font-size: 0.92rem;
+  color: rgba(183,204,209,0.92);
+}
+
+.assistant-output {
+  min-height: 3.2rem;
+  width: 100%;
+  padding: 1rem 1.1rem;
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.02) 100%);
+  color: #e9fbff;
+  line-height: 1.6;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06), 0 12px 28px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(6px);
+  text-align: left;
+  max-height: 40vh;
+  overflow: auto;
+}
+
+@media (max-width: 650px) {
+  .assistant-shell {
+    padding: 0.9rem;
+    width: 100%;
+    border-radius: 14px;
+  }
+  .assistant-output {
+    border-radius: 10px;
+  }
+}
