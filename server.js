@@ -4,7 +4,7 @@ import { GoogleGenAI } from "@google/genai";
 
 dotenv.config();
 const ai = new GoogleGenAI({
-    apiKey: process.env.GEMINI_API_KEY
+  apiKey: process.env.GEMINI_API_KEY,
 });
 const app = express();
 
@@ -12,61 +12,58 @@ app.use(express.json());
 app.use(express.static("public"));
 
 app.get("/weather/:city", async (req, res) => {
-    try {
-        const city = req.params.city;
+  try {
+    const city = req.params.city;
 
-        const url = `https://api.weatherapi.com/v1/current.json?key=${process.env.WEATHER_API_KEY}&q=${city}&aqi=yes`;
+    const url = `https://api.weatherapi.com/v1/current.json?key=${process.env.WEATHER_API_KEY}&q=${city}&aqi=yes`;
 
-        const response = await fetch(url);
+    const response = await fetch(url);
 
-        if (!response.ok) {
-            return res.status(response.status).json({
-                error: "Unable to fetch weather"
-            });
-        }
-
-        const data = await response.json();
-
-        res.json(data);
-
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({
-            error: "Server Error"
-        });
+    if (!response.ok) {
+      return res.status(response.status).json({
+        error: "Unable to fetch weather",
+      });
     }
-});
 
+    const data = await response.json();
+
+    res.json(data);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({
+      error: "Server Error",
+    });
+  }
+});
 
 app.post("/ask-ai", async (req, res) => {
+  const { weather } = req.body;
 
-    const { weather } = req.body;
-
-    try {
-
-        const data = await ai.interactions.create({
-            model: "gemini-3.6-flash",
-            input: `Give clothing and travel advice for this weather. Return the output in JSON format with a clothing key and a travel key, and keep the response concise and clear in both keys. Weather details:
+  try {
+    const data = await ai.interactions.create({
+      model: "gemini-3.6-flash",
+      input: `Give clothing and travel advice for this weather. Return the output in JSON format with a clothing key and a travel key, Do not wrap the response in markdown.
+            Return only the JSON object. and keep the response concise and clear in both keys. Weather details:
             ${weather}
-            `
-        });
+            `,
+    });
 
-        res.json(data);
+    res.json(data);
+  } catch (err) {
+    console.log(err);
 
-    } catch (err) {
-
-        console.log(err);
-
-        res.status(500).json({
-            error: "AI Error"
-        });
-
-    }
-
+    res.status(500).json({
+      error: "AI Error",
+    });
+  }
 });
 
-const PORT = process.env.PORT || 3000;
+// const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, () => {
-    console.log("Server is running on port ", PORT);
+// app.listen(PORT, () => {
+//     console.log("Server is running on port ", PORT);
+// });
+
+app.listen(3000, () => {
+  console.log("server is running");
 });

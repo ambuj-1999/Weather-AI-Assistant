@@ -240,7 +240,7 @@ body {
   color: rgba(183,204,209,0.92);
 }
 
-.assistant-output {
+.assistant-output{
   min-height: 3.2rem;
   width: 100%;
   padding: 1rem 1.1rem;

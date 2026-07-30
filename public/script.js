@@ -9,7 +9,8 @@ const localDate = document.querySelector(".localdate");
 const localTime = document.querySelector(".localtime");
 const assistantButton = document.querySelector("#assistantButton");
 const assistantOutput = document.querySelector("#assistantOutput");
-
+const clothing = document.querySelector("#clothing");
+const travel = document.querySelector("#travel");
 
 async function fetchWeatherData(city) {
   try {
@@ -38,7 +39,9 @@ function updateDom(data) {
 
 async function getAdvice(weather) {
   if (assistantOutput) {
-    assistantOutput.textContent = "Thinking of a polished suggestion...";
+    assistantOutput.innerHTML = `Thinking of a polished suggestion...
+    <div id="clothing"></div>
+    <div id="travel"></div>`;
   }
 
   try {
@@ -53,15 +56,29 @@ async function getAdvice(weather) {
     });
 
     const data = await response.json();
-    const advice = data?.steps?.[1]?.content?.[0]?.text || "I could not generate a tip right now.";
-
-    if (assistantOutput) {
-      assistantOutput.innerHTML = advice;
+    const result =
+      data?.steps?.[1]?.content?.[0]?.text ||
+      "I could not generate a tip right now.";
+    const advice = JSON.parse(result);
+    // if (assistantOutput) {
+    //   assistantOutput.innerHTML = `<h2>Have a safe and happy journey....</h2>`;
+    // }
+    if (clothing && travel) {
+      clothing.innerHTML = `
+        <h3>👕 Clothing Advice</h3>
+        <p>${advice.clothing}</p>`;
+      travel.innerHTML = `
+        <h3>🚗 Travel Advice</h3>
+        <p>${advice.travel}</p>`;
     }
+    console.log(advice);
+    console.log(typeof advice);
+    console.log(advice.clothing);
   } catch (error) {
     console.log(error.message);
     if (assistantOutput) {
-      assistantOutput.textContent = "The assistant is unavailable right now. Please try again.";
+      assistantOutput.textContent =
+        "The assistant is unavailable right now. Please try again.";
     }
   }
 }

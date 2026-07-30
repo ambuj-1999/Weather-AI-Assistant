@@ -1,70 +1,68 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Weather App</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <main class="weather-app">
-      <section class="weather-card">
-        <p class="app-title">Current Weather</p>
 
-        <div class="weather">
-          <div class="temperature">
-            <span class="temp">20</span>
-            <span class="degree">&deg;C</span>
-          </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather App</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
 
-          <div class="time-location">
-            <p class="city">City Name</p>
-            <span class="localdate">Local Date</span>
-            <span class="localtime">Local Time</span>
-          </div>
-          <div class="weather-condition">
-            <img class="weather-icon" src="" alt="Weather condition icon" />
-            <span class="condition">Condition</span>
-          </div>
+<body>
+  <main class="weather-app">
+    <section class="weather-card">
+      <p class="app-title">Current Weather</p>
+
+      <div class="weather">
+        <div class="temperature">
+          <span class="temp">20</span>
+          <span class="degree">&deg;C</span>
         </div>
-      </section>
 
-      <section class="ai-section">
-        <div class="ai-card">
-          <div class="assistant-shell">
-            <button type="button" class="assistant-button" id="assistantButton">
-              <span class="assistant-icon">✦</span>
-              <span>AI Assistant</span>
-            </button>
-            <p class="assistant-hint">
-              Get a quick weather-smart tip for what to wear or do today.
-            </p>
-            <div class="assistant-output" id="assistantOutput" aria-live="polite">
-              Tap the button for a smart weather tip.
-            </div>
-          </div>
+        <div class="time-location">
+          <p class="city">City Name</p>
+          <span class="localdate">Local Date</span>
+          <span class="localtime">Local Time</span>
         </div>
-      </section>
+        <div class="weather-condition">
+          <img class="weather-icon" src="" alt="Weather condition icon" />
+          <span class="condition">Condition</span>
+        </div>
+      </div>
+    </section>
 
-      <section class="search-section">
-        <form id="searchForm" class="search-form">
-          <label for="searchInput">Search for a city</label>
-
-          <div class="search-controls">
-            <input
-              type="text"
-              class="search-field"
-              placeholder="Enter city name"
-              id="searchInput"
-              required
-            />
-
-            <button type="submit" class="ai-button">Search</button>
+    <section class="ai-section">
+      <div class="ai-card">
+        <div class="assistant-shell">
+          <button type="button" class="assistant-button" id="assistantButton">
+            <span class="assistant-icon">✦</span>
+            <span>AI Assistant</span>
+          </button>
+          <p class="assistant-hint">
+            Get a quick weather-smart tip for what to wear or do today.
+          </p>
+          <div class="assistant-output" id="assistantOutput" aria-live="polite">
+            Tap the button for a smart weather tip.
           </div>
-        </form>
-      </section>
-    </main>
+          
+        </div>
+      </div>
+    </section>
 
-    <script type="module" src="script.js"></script>
-  </body>
+    <section class="search-section">
+      <form id="searchForm" class="search-form">
+        <label for="searchInput">Search for a city</label>
+
+        <div class="search-controls">
+          <input type="text" class="search-field" placeholder="Enter city name" id="searchInput" required />
+
+          <button type="submit" class="ai-button">Search</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <script type="module" src="script.js"></script>
+</body>
+
 </html>
