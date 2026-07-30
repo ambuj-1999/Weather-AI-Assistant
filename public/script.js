@@ -9,8 +9,6 @@ const localDate = document.querySelector(".localdate");
 const localTime = document.querySelector(".localtime");
 const assistantButton = document.querySelector("#assistantButton");
 const assistantOutput = document.querySelector("#assistantOutput");
-const clothing = document.querySelector("#clothing");
-const travel = document.querySelector("#travel");
 
 async function fetchWeatherData(city) {
   try {
@@ -63,6 +61,8 @@ async function getAdvice(weather) {
     // if (assistantOutput) {
     //   assistantOutput.innerHTML = `<h2>Have a safe and happy journey....</h2>`;
     // }
+    const clothing = document.querySelector("#clothing");
+    const travel = document.querySelector("#travel");
     if (clothing && travel) {
       clothing.innerHTML = `
         <h3>👕 Clothing Advice</h3>
